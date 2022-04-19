@@ -1,6 +1,6 @@
 import { request, gql } from 'graphql-request'
 
-const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
+const graphqlAPI:any = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
 
 export const getPosts = async () => {
     const query = gql`
@@ -38,7 +38,7 @@ export const getPosts = async () => {
     return result.postsConnection.edges
 }
 
-export const getPostDetails = async (slug) => {
+export const getPostDetails = async (slug:string) => {
     const query = gql`
         query GetPostDetails($slug: String!) {
             post(where: { slug: $slug }) {
@@ -95,7 +95,7 @@ export const getRecentPosts = async () => {
     return result.posts
 }
 
-export const getSimilarPosts = async (categories, slug) => {
+export const getSimilarPosts = async (categories:Array<String>, slug:string) => {
     const query = gql`
         query GetPostDetails($slug: String!, $categories: [String!]) {
             posts(
@@ -192,7 +192,7 @@ export const getFeaturedPosts = async () => {
     return result.posts
 }
 
-export const getCategoryPost = async (slug) => {
+export const getCategoryPost = async (slug:string) => {
     const query = gql`
         query GetCategoryPost($slug: String!) {
             postsConnection(where: {categories_some: {slug: $slug}}) {

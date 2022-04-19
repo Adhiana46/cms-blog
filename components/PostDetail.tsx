@@ -4,7 +4,7 @@ import Image from 'next/image';
 import CategoryPills from './CategoryPills';
 
 const PostDetail = ({ post }:any) => {
-  const getContentFragment = (index, text, obj, type) => {
+  const getContentFragment = (index:number, text:any, obj:any, type:string = '') => {
     let modifiedText = text;
 
     if (obj) {
@@ -23,11 +23,11 @@ const PostDetail = ({ post }:any) => {
 
     switch (type) {
       case 'heading-three':
-        return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
+        return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item:any, i:number) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
       case 'paragraph':
-        return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
+        return <p key={index} className="mb-8">{modifiedText.map((item:any, i:number) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
       case 'heading-four':
-        return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+        return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item:any, i:number) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
       case 'image':
         return (
           <img
@@ -77,8 +77,8 @@ const PostDetail = ({ post }:any) => {
         </div>
         <h1 className='mb-8 text-3xl font-semibold'>{post.title}</h1>
         {console.log(post.content.raw)}
-        {post.content.raw.children.map((typeObj:any, index) => {
-          const children = typeObj.children.map((item, itemIndex) => getContentFragment(itemIndex, item.text, item))
+        {post.content.raw.children.map((typeObj:any, index:number) => {
+          const children = typeObj.children.map((item:any, itemIndex:number) => getContentFragment(itemIndex, item.text, item))
 
           return getContentFragment(index, children, typeObj, typeObj.type)
         })}

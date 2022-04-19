@@ -20,7 +20,7 @@ const Comments = ({ slug }:any) => {
             {' '}
             Comments
           </h3>
-          {comments.map((comment) => (
+          {comments.map((comment:any) => (
             <div key={comment.createdAt} className='border-b border-gray-100 mb-4 pb-4'>
               <p className='mb-4'>
                 <span className='font-semibold'>{comment.name}</span>

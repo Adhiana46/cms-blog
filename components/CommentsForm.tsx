@@ -5,10 +5,10 @@ const CommentsForm = ({ slug }:any) => {
   const [error, setError] = useState(false)
   const [localStorage, setlocalStorage] = useState(null)
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
-  const commentEl = useRef()
-  const nameEl = useRef()
-  const emailEl = useRef()
-  const storeDataEl = useRef()
+  const commentEl:React.LegacyRef<any> = useRef()
+  const nameEl:React.LegacyRef<any> = useRef()
+  const emailEl:React.LegacyRef<any> = useRef()
+  const storeDataEl:React.LegacyRef<any> = useRef()
 
   useEffect(() => {
     nameEl.current.value = window.localStorage.getItem('name')
